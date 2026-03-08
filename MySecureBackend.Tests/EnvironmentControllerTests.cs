@@ -33,7 +33,7 @@ namespace MySecureBackend.Tests
              {
                  Id = Guid.NewGuid().ToString(),
                  Name = "Test",
-                 MaxHeigth = 10,
+                 MaxHeight = 10,
                  MaxLength = 10,
                  OwnerId = userId
              };
@@ -63,7 +63,7 @@ namespace MySecureBackend.Tests
              {
                  Id = Guid.NewGuid().ToString(),
                  Name = "Test",
-                 MaxHeigth = 10,
+                 MaxHeight = 10,
                  MaxLength = 10,
                  OwnerId = userId
              };
@@ -92,7 +92,7 @@ namespace MySecureBackend.Tests
              {
                  Id = Guid.NewGuid().ToString(),
                  Name = "Test",
-                 MaxHeigth = 10,
+                 MaxHeight = 10,
                  MaxLength = 10,
                  OwnerId = userId
              };

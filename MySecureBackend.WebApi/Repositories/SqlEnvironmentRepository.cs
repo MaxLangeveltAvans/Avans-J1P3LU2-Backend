@@ -12,8 +12,8 @@ namespace MySecureBackend.WebApi.Repositories
             {
                 await sqlConnection.ExecuteAsync(
                     "INSERT INTO Environment " +
-                    "(Name, MaxHeight, MaxLength) " +
-                    "VALUES (@Name,  @MaxHeight, @MaxLength)", 
+                    "(Id, Name,MaxHeight, MaxLength) " +
+                    "VALUES (@Id, @Name,  @MaxHeight, @MaxLength)", 
                     environment);
             }
         }
