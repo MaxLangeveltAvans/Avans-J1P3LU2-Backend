@@ -75,7 +75,7 @@ public class EnvironmentController : ControllerBase
             environment.Id = Guid.NewGuid().ToString();
         
         await  _environmentRepository.InsertAsync(environment);
-        return CreatedAtRoute("GetEnvironmentById", new { environmentId = environment.Id });
+        return CreatedAtRoute("GetEnvironmentById", new { environmentId = environment.Id }, environment);
     }
 
     [HttpPut("{environmentId}", Name = "UpdateEnvironment")]

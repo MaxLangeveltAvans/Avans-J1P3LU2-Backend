@@ -49,7 +49,7 @@ namespace MySecureBackend.Tests
              var createdResult = Assert.IsInstanceOfType<CreatedAtRouteResult>(result.Result);
 
              Assert.AreEqual("GetEnvironmentById", createdResult.RouteName);
-             Assert.AreEqual(testEnvironment.Id, createdResult.RouteValues["id"]);
+             Assert.AreEqual(testEnvironment.Id, createdResult.RouteValues["environmentId"]);
              Assert.AreSame(testEnvironment, createdResult.Value);
 
          }
