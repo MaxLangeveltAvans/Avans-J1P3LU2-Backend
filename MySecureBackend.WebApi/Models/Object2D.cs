@@ -3,6 +3,7 @@ namespace MySecureBackend.WebApi.Models;
 public class Object2D
 {
     public string? Id { get; set; }
+    public string EnvironmentId { get; set; }
     public int PrefabId { get; set; }
     public int PositionX { get; set; }
     public int PositionY { get; set; }

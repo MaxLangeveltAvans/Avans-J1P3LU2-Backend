@@ -11,9 +11,9 @@ namespace MySecureBackend.WebApi.Repositories
             using (var sqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 await sqlConnection.ExecuteAsync(
-                    "INSERT INTO Object " +
-                    "(Id, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer) " +
-                    "VALUES (@Id, @PrefabId, @PositionX, @PositionY, @ScaleX, @ScaleY, @RotationZ, @SortingLayer)", 
+                    "INSERT INTO object " +
+                    "(Id, EnvironmentId, PrefabId, PositionX, PositionY, ScaleX, ScaleY, RotationZ, SortingLayer) " +
+                    "VALUES (@Id, @EnvironmentId ,@PrefabId, @PositionX, @PositionY, @ScaleX, @ScaleY, @RotationZ, @SortingLayer)", 
                     object2D);
             }
         }
@@ -26,11 +26,11 @@ namespace MySecureBackend.WebApi.Repositories
             }
         }
 
-        public async Task<IEnumerable<Object2D>> SelectAsync()
+        public async Task<IEnumerable<Object2D>> SelectByEnvironmentAsync(string environmentId)
         {
             using (var sqlConnection = new MySqlConnection(sqlConnectionString))
             {
-                return await sqlConnection.QueryAsync<Object2D>("SELECT * FROM Object");
+                return await sqlConnection.QueryAsync<Object2D>("SELECT * FROM Object WHERE EnvironmentId = @EnvironmentId", new { environmentId });
             }
         }
 
@@ -38,7 +38,7 @@ namespace MySecureBackend.WebApi.Repositories
         {
             using (var sqlConnection = new MySqlConnection(sqlConnectionString))
             {
-                return await sqlConnection.QuerySingleOrDefaultAsync<Object2D>("SELECT * FROM Object WHERE Id = @Id", new { id });   
+                return await sqlConnection.QuerySingleOrDefaultAsync<Object2D>("SELECT * FROM object WHERE Id = @Id", new { id });   
             }
         }
 
@@ -46,7 +46,7 @@ namespace MySecureBackend.WebApi.Repositories
         {
             using (var sqlConnection = new MySqlConnection(sqlConnectionString))
             {
-                await sqlConnection.ExecuteAsync("UPDATE Object SET " +
+                await sqlConnection.ExecuteAsync("UPDATE object SET " +
                                                  "PrefabId = @PrefabId, " +
                                                  "PositionX = @PositionX, " +
                                                  "PositionY = @PositionY, " +

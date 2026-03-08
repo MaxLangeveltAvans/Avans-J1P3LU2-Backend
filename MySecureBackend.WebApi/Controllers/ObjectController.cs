@@ -21,9 +21,9 @@ public class ObjectController : ControllerBase
     }
 
     [HttpGet(Name = "GetObjects")]
-    public async Task<ActionResult<List<Object2D>>> GetAsync()
+    public async Task<ActionResult<List<Object2D>>> GetAsync(string environmentId)
     {
-        var object2Ds = await _objectRepository.SelectAsync();
+        var object2Ds = await _objectRepository.SelectByEnvironmentAsync(environmentId);
         return Ok(object2Ds);
     }
 
